@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "install": "npm-git install"
-  }, 
-  
-  "gitDependencies": {
-    "public-package-name": "https://github.com/lLeo-sf/todo.git"
-  }
-}
