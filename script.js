@@ -1,22 +1,22 @@
 
 const main = document.querySelector('.main')   
 const todo = document.querySelector('.todo')   
+const todos = document.querySelector('.todos')
 const form = document.querySelector('#form')
 
 
+
 const todoList = [
-    { id: 1, title: 'title', date: '5/28/20', text: 'text' },
-    { id: 2, title: 'title', date: '5/28/20', text: 'text' },
-    { id: 3, title: 'title', date: '5/28/20', text: 'text' },
 ]
 
 
-const addTodo = () => {
+const addTodo = () => {  
+    
     const newTodoTitle = document.querySelector('#newTodoTitle').value
     const newTodoText = document.querySelector('#newTodoText').value
         
     const date = new Date 
-    const today = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()  
+    const today = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()
 
     var newId = todoList.length + 1
     
@@ -26,8 +26,9 @@ const addTodo = () => {
         date: today, 
         text: newTodoText
     })
+    init()
     console.log(todoList);
-    todoDisplay()
+    
 }
 
 const todoDisplay = () => {
@@ -35,7 +36,6 @@ const todoDisplay = () => {
         
         const todo = document.createElement('div')
         todo.classList.add('todo')
-        todo.innerHTML = ``
 
         ///////////////////////////////////////////////
         const titleTodo = document.createElement('h4')
@@ -63,24 +63,20 @@ const todoDisplay = () => {
         `
         ////////////////////////////////////////////////
 
+        
+
         todo.append(titleTodo, dateTodo, textTodo)
-        main.append(todo)
+        todos.append(todo)
+        
     }
 }
 
 
-const handleFormSubmit = event => {   
-    event.preventDefault()
-    
-    addTodo(newTodoText, newTodoTitle, today)
-    init()
-        
 
-}
+
 const init = () => {
-    todo.innerHTML = ``
+    todos.innerHTML = ``
     todoDisplay()
+
 }
 init()
-
-form.addEventListener('submit', handleFormSubmit) 

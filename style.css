@@ -1,43 +1,109 @@
 body {
     margin: 0 auto;
     padding: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('background.jpg');
+    overflow-y: hidden;
+    font-family: 'Chelsea Market', cursive;
+    width: 100%;
+}
+
+:root{
+    --font: 'Chelsea Market', cursive;
+    --mainBlue: #0073D0;
+    --secondBlue: #0C4BE8;
+    --alternativeBlue: #0B10DE;
+    --lightBlue: #0CBFE8;
+    --white: #E3ECFD;
+    --secondWhite: #fbfbfb;
+    --dark: #121212;
 }
 
 .container{
-    width: 100%;
-    height: 80px;
-    background-color:red;
+    display: flex;
 }
 
 .main{
     display: flex;
     flex-direction: row;
+    
+}
+
+.todos{
+    display: flex;
+    flex-direction: row;
 }
 
 .todo{
-    width:10%;
-    height: 100%;
-    background: blue;
+    width:500px;
+    height: 500px;
     margin-left:15px;
+    background:var(--secondBlue);
+    filter: opacity(0.96);
+    border-radius: 15px;
 }
 
 .titleTodo{
     text-align: center;
     overflow-wrap: break-word;
+    font-size: 18pt;
+    color: var(--white)
+
 }
 
 .dateTodo {
     text-align: center;
+    font-size: 14pt;
+    color:var(--secondWhite);
 }
 
 .textTodo{
     margin-left: 10px;
     overflow-wrap: break-word;
+    color: var(--white);
+    font-size: 16pt;
 }
 
 .addTodo{
-    width:10%;
-    height: 80px;
-    background-color: yellow;
+    width:500px;
+    height: 500px;
+    background-color:var(--mainBlue);
+    justify-content: center;
+    align-items: center;
+    display:grid;
+    border-radius: 15px;
+    margin-left: 10px;
 }
 
+textarea{
+    width: 450px;
+    height: 305px;
+    resize: none;
+    border: none;
+    outline: 0;
+    border-radius: 15px;
+}
+
+input{
+    height: 35px;
+    background: var(--white);
+    border: none;
+    border-radius: 25px;
+}
+
+input:focus{
+    border: none;
+    outline: 0;
+    border-radius: 25px;
+}
+
+button{
+    height: 35px;
+    border: none;
+    border-radius: 25px;
+    outline: 0;
+    color: var(--white);
+    background-color: var(--dark)
+}
