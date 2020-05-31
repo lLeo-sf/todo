@@ -1,4 +1,3 @@
-
 const main = document.querySelector('.main')   
 const todo = document.querySelector('.todo')   
 const todos = document.querySelector('.todos')
@@ -12,23 +11,27 @@ const todoList = [
 
 const addTodo = () => {  
     
-    const newTodoTitle = document.querySelector('#newTodoTitle').value
-    const newTodoText = document.querySelector('#newTodoText').value
+    const newTodoTitle = document.querySelector('#newTodoTitle')
+    const newTodoText = document.querySelector('#newTodoText')
         
     const date = new Date 
     const today = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()
 
     var newId = todoList.length + 1
-    
-    todoList.push({
-        id: newId, 
-        title: newTodoTitle, 
-        date: today, 
-        text: newTodoText
-    })
-    init()
-    console.log(todoList);
-    
+    newTodoContent = newTodoText.value
+    if(newTodoContent.length > 309){
+
+        newTodoText.value = "max caracters is 399!"
+
+    }else{
+        todoList.push({
+            id: newId, 
+            title: newTodoTitle.value, 
+            date: today, 
+            text: newTodoText.value
+        })
+        init()
+    }
 }
 
 const todoDisplay = () => {
@@ -40,6 +43,7 @@ const todoDisplay = () => {
         ///////////////////////////////////////////////
         const titleTodo = document.createElement('h4')
         titleTodo.classList.add('titleTodo')
+
 
         titleTodo.innerHTML = `
             ${todoList[i].title}
@@ -71,12 +75,8 @@ const todoDisplay = () => {
     }
 }
 
-
-
-
 const init = () => {
     todos.innerHTML = ``
     todoDisplay()
-
 }
 init()
